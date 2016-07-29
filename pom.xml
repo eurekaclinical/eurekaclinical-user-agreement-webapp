@@ -84,7 +84,7 @@
             <properties>
                 <cas-mock-version>1.0-Alpha-2</cas-mock-version>
                 <tomcat.httpsPort>8443</tomcat.httpsPort>
-                <eurekaclinical-user-agreement-service-version>1.0-Alpha-4</eurekaclinical-user-agreement-service-version>
+                <eurekaclinical-user-agreement-service-version>1.0-Alpha-5</eurekaclinical-user-agreement-service-version>
             </properties>
             <build>
                 <plugins>
