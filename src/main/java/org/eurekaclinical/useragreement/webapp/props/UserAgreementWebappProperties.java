@@ -1,4 +1,4 @@
-package org.eurekaclinical.useragreementservice.props;
+package org.eurekaclinical.useragreement.webapp.props;
 
 /*-
  * #%L
@@ -19,7 +19,7 @@ package org.eurekaclinical.useragreementservice.props;
  * limitations under the License.
  * #L%
  */
-import org.eurekaclinical.useragreementcommon.props.UserAgreementProperties;
+import org.eurekaclinical.useragreement.common.props.UserAgreementProperties;
 
 /**
  *
@@ -33,7 +33,7 @@ public class UserAgreementWebappProperties extends UserAgreementProperties {
     }
 
     public String getServiceUrl() {
-        return this.getValue("eurekaclinical.useragreementservice.url");
+        return getValue("eurekaclinical.useragreementservice.url");
     }
 
 }

@@ -1,4 +1,4 @@
-package org.eurekaclinical.useragreementservice.config;
+package org.eurekaclinical.useragreement.webapp.config;
 
 /*-
  * #%L
@@ -21,10 +21,10 @@ package org.eurekaclinical.useragreementservice.config;
  */
 
 import com.google.inject.AbstractModule;
-import org.eurekaclinical.useragreementservice.client.ServiceClientRouterTable;
+import org.eurekaclinical.useragreement.webapp.client.ServiceClientRouterTable;
 import org.eurekaclinical.common.comm.clients.RouterTable;
-import org.eurekaclinical.standardapis.props.EurekaClinicalProperties;
-import org.eurekaclinical.useragreementservice.props.UserAgreementWebappProperties;
+import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
+import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 
 /**
  * @author Andrew Post
@@ -40,6 +40,6 @@ public class AppModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(RouterTable.class).to(ServiceClientRouterTable.class);
-        bind(EurekaClinicalProperties.class).toInstance(this.properties);
+        bind(CasEurekaClinicalProperties.class).toInstance(this.properties);
     }
 }

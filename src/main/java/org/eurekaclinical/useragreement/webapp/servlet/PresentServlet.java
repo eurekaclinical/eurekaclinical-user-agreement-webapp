@@ -1,4 +1,4 @@
-package org.eurekaclinical.useragreementservice.servlet;
+package org.eurekaclinical.useragreement.webapp.servlet;
 
 /*-
  * #%L
@@ -29,9 +29,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.useragreementservice.client.ServiceClient;
-import org.eurekaclinical.useragreementcommon.comm.Status;
-import org.eurekaclinical.useragreementcommon.comm.UserAgreementStatus;
+import org.eurekaclinical.useragreement.client.comm.Status;
+import org.eurekaclinical.useragreement.client.comm.UserAgreementStatus;
+import org.eurekaclinical.useragreement.webapp.client.ServiceClient;
 
 /**
  *

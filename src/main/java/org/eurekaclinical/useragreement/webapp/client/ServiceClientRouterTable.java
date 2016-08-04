@@ -1,4 +1,4 @@
-package org.eurekaclinical.useragreementservice.servlet;
+package org.eurekaclinical.useragreement.webapp.client;
 
 /*-
  * #%L
@@ -20,25 +20,26 @@ package org.eurekaclinical.useragreementservice.servlet;
  * #L%
  */
 
-import java.io.IOException;
-import javax.inject.Singleton;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.inject.Inject;
+import org.eurekaclinical.common.comm.clients.Route;
+import org.eurekaclinical.common.comm.clients.RouterTable;
 
 /**
  *
  * @author Andrew Post
  */
-@Singleton
-public class EditServlet extends HttpServlet {
+public class ServiceClientRouterTable implements RouterTable {
 
-    private static final long serialVersionUID = 1L;
+    private final ServiceClient client;
 
+    @Inject
+    public ServiceClientRouterTable(ServiceClient inClient) {
+        this.client = inClient;
+    }
+    
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/WEB-INF/edit.jsp").forward(req, resp);
+    public Route[] load() {
+        return new Route[]{new Route("/", "/api/protected/", this.client)};
     }
     
 }

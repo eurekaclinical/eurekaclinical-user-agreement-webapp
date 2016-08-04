@@ -1,4 +1,4 @@
-package org.eurekaclinical.useragreementservice.client;
+package org.eurekaclinical.useragreement.webapp.client;
 
 /*-
  * #%L
@@ -27,15 +27,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.eurekaclinical.common.comm.clients.EurekaClinicalClient;
-import org.eurekaclinical.useragreementcommon.comm.UserAgreementStatus;
-import org.eurekaclinical.useragreementservice.props.UserAgreementWebappProperties;
+import org.eurekaclinical.useragreement.client.comm.UserAgreementStatus;
+import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 
 /**
  * @author Andrew Post
  */
 public class ServiceClient extends EurekaClinicalClient {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceClient.class);
 
     private final String serviceUrl;
 

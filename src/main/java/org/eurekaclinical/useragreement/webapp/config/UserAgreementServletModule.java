@@ -1,4 +1,4 @@
-package org.eurekaclinical.useragreementservice.config;
+package org.eurekaclinical.useragreement.webapp.config;
 
 /*-
  * #%L
@@ -24,10 +24,10 @@ import java.util.Map;
 import org.eurekaclinical.common.config.AbstractServletModule;
 import org.eurekaclinical.common.servlet.LogoutServlet;
 import org.eurekaclinical.common.servlet.ProxyServlet;
-import org.eurekaclinical.useragreementservice.props.UserAgreementWebappProperties;
-import org.eurekaclinical.useragreementservice.servlet.AgreeServlet;
-import org.eurekaclinical.useragreementservice.servlet.EditServlet;
-import org.eurekaclinical.useragreementservice.servlet.PresentServlet;
+import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
+import org.eurekaclinical.useragreement.webapp.servlet.AgreeServlet;
+import org.eurekaclinical.useragreement.webapp.servlet.EditServlet;
+import org.eurekaclinical.useragreement.webapp.servlet.PresentServlet;
 
 /**
  * A Guice configuration module for setting up the web infrastructure and
