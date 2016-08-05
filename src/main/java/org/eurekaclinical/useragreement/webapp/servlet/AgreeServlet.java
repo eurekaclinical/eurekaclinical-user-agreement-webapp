@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.useragreement.webapp.client.ServiceClient;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementProxyClient;
 import org.eurekaclinical.useragreement.client.comm.UserAgreementStatus;
 
 /**
@@ -39,10 +39,10 @@ public class AgreeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    private final ServiceClient client;
+    private final EurekaClinicalUserAgreementProxyClient client;
 
     @Inject
-    public AgreeServlet(ServiceClient inClient) {
+    public AgreeServlet(EurekaClinicalUserAgreementProxyClient inClient) {
         this.client = inClient;
     }
 

@@ -23,6 +23,7 @@ package org.eurekaclinical.useragreement.webapp.client;
 import javax.inject.Inject;
 import org.eurekaclinical.common.comm.clients.Route;
 import org.eurekaclinical.common.comm.clients.RouterTable;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementProxyClient;
 
 /**
  *
@@ -30,10 +31,10 @@ import org.eurekaclinical.common.comm.clients.RouterTable;
  */
 public class ServiceClientRouterTable implements RouterTable {
 
-    private final ServiceClient client;
+    private final EurekaClinicalUserAgreementProxyClient client;
 
     @Inject
-    public ServiceClientRouterTable(ServiceClient inClient) {
+    public ServiceClientRouterTable(EurekaClinicalUserAgreementProxyClient inClient) {
         this.client = inClient;
     }
     

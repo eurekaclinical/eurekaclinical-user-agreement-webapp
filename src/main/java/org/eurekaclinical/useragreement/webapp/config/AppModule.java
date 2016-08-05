@@ -24,6 +24,7 @@ import com.google.inject.AbstractModule;
 import org.eurekaclinical.useragreement.webapp.client.ServiceClientRouterTable;
 import org.eurekaclinical.common.comm.clients.RouterTable;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementProxyClient;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 
 /**
@@ -32,14 +33,17 @@ import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperti
 public class AppModule extends AbstractModule {
 
     private final UserAgreementWebappProperties properties;
+    private final EurekaClinicalUserAgreementProxyClient client;
     
     public AppModule(UserAgreementWebappProperties inProperties) {
         this.properties = inProperties;
+        this.client = new EurekaClinicalUserAgreementProxyClient(this.properties.getServiceUrl());
     }
 
     @Override
     protected void configure() {
         bind(RouterTable.class).to(ServiceClientRouterTable.class);
         bind(CasEurekaClinicalProperties.class).toInstance(this.properties);
+        bind(EurekaClinicalUserAgreementProxyClient.class).toInstance(this.client);
     }
 }
