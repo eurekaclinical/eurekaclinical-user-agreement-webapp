@@ -22,6 +22,7 @@ package org.eurekaclinical.useragreement.webapp.config;
 import java.util.HashMap;
 import java.util.Map;
 import org.eurekaclinical.common.config.AbstractServletModule;
+import org.eurekaclinical.common.servlet.DestroySessionServlet;
 import org.eurekaclinical.common.servlet.LogoutServlet;
 import org.eurekaclinical.common.servlet.ProxyServlet;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
@@ -57,6 +58,7 @@ public class UserAgreementServletModule extends AbstractServletModule {
         serve("/protected/present").with(PresentServlet.class);
         serve("/protected/agree").with(AgreeServlet.class);
         serve("/proxy-resource/*").with(ProxyServlet.class);
+        serve("/destroy-session").with(DestroySessionServlet.class);
         serve("/logout").with(LogoutServlet.class);
     }
 
