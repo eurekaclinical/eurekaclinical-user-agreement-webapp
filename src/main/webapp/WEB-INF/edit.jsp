@@ -135,6 +135,8 @@
                 $.ajax({
                     url: "${pageContext.request.contextPath}/proxy-resource/useragreements",
                     method: "POST",
+                    processData: false,
+                    contentType: 'application/json',
                     data: JSON.stringify({text: $('#editor').val()})
                 }).done(function () {
                     $('#savesucceeded').show();
