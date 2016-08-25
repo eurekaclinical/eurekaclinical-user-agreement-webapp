@@ -49,7 +49,7 @@ public class UserAgreementContextListener extends GuiceServletContextListener {
             this.injectorSupport = new InjectorSupport(
                     new Module[]{
                         new AppModule(this.properties),
-                        new UserAgreementServletModule(this.properties),
+                        new ServletModule(this.properties),
                     },
                     this.properties);
         }

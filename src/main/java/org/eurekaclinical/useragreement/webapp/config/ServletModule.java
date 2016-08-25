@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.eurekaclinical.common.config.AbstractServletModule;
 import org.eurekaclinical.common.servlet.DestroySessionServlet;
+import org.eurekaclinical.common.servlet.LoginServlet;
 import org.eurekaclinical.common.servlet.LogoutServlet;
 import org.eurekaclinical.common.servlet.ProxyServlet;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
@@ -37,23 +38,22 @@ import org.eurekaclinical.useragreement.webapp.servlet.PresentServlet;
  * @author Andrew Post
  *
  */
-public class UserAgreementServletModule extends AbstractServletModule {
+public class ServletModule extends AbstractServletModule {
     
     private static final String CONTAINER_PATH = "/site/*";
 
     private static final String CONTAINER_PROTECTED_PATH = "/protected/*";
     
-    private static final String LOGOUT_PATH = "/logout";
-
     private final UserAgreementWebappProperties properties;
 
-    public UserAgreementServletModule(UserAgreementWebappProperties inProperties) {
-        super(inProperties, CONTAINER_PATH, CONTAINER_PROTECTED_PATH, LOGOUT_PATH);
+    public ServletModule(UserAgreementWebappProperties inProperties) {
+        super(inProperties, CONTAINER_PATH, CONTAINER_PROTECTED_PATH);
         this.properties = inProperties;
     }
     
     @Override
     protected void setupServlets() {
+        serve("/protected/login").with(LoginServlet.class);
         serve("/protected/edit").with(EditServlet.class);
         serve("/protected/present").with(PresentServlet.class);
         serve("/protected/agree").with(AgreeServlet.class);
