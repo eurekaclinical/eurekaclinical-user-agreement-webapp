@@ -31,7 +31,7 @@
     </issueManagement>
     
     <properties>
-        <eurekaclinical-user-agreement-common-version>1.0-Alpha-8</eurekaclinical-user-agreement-common-version>
+        <eurekaclinical-user-agreement-common-version>1.0-Alpha-9</eurekaclinical-user-agreement-common-version>
         <jstl-version>1.2</jstl-version>
         <jsp-api-version>2.0</jsp-api-version>
     </properties>
@@ -84,7 +84,7 @@
             <properties>
                 <cas-mock-version>1.0-Alpha-2</cas-mock-version>
                 <tomcat.httpsPort>8443</tomcat.httpsPort>
-                <eurekaclinical-user-agreement-service-version>1.0-Alpha-12</eurekaclinical-user-agreement-service-version>
+                <eurekaclinical-user-agreement-service-version>1.0-Alpha-13</eurekaclinical-user-agreement-service-version>
             </properties>
             <build>
                 <plugins>
