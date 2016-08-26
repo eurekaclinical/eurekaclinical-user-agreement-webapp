@@ -25,6 +25,7 @@ import org.eurekaclinical.common.config.AbstractServletModule;
 import org.eurekaclinical.common.servlet.DestroySessionServlet;
 import org.eurekaclinical.common.servlet.LoginServlet;
 import org.eurekaclinical.common.servlet.LogoutServlet;
+import org.eurekaclinical.common.servlet.PostMessageLoginServlet;
 import org.eurekaclinical.common.servlet.ProxyServlet;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 import org.eurekaclinical.useragreement.webapp.servlet.AgreeServlet;
@@ -53,13 +54,12 @@ public class ServletModule extends AbstractServletModule {
     
     @Override
     protected void setupServlets() {
-        serve("/protected/login").with(LoginServlet.class);
+        serve("/protected/get-session").with(PostMessageLoginServlet.class);
         serve("/protected/edit").with(EditServlet.class);
         serve("/protected/present").with(PresentServlet.class);
         serve("/protected/agree").with(AgreeServlet.class);
         serve("/proxy-resource/*").with(ProxyServlet.class);
         serve("/destroy-session").with(DestroySessionServlet.class);
-        serve("/logout").with(LogoutServlet.class);
     }
 
     @Override
