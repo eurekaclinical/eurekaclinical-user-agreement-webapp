@@ -36,4 +36,9 @@ public class UserAgreementWebappProperties extends UserAgreementProperties {
         return getValue("eurekaclinical.useragreementservice.url");
     }
 
+    @Override
+    public String getUrl() {
+        return getValue("eurekaclinical.useragreementwebapp.url");
+    }
+    
 }
