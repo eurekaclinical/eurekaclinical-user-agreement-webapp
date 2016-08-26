@@ -55,56 +55,12 @@
                 });
             });
         </script>
-        <title>User Agreement</title>
+        <title>User Agreement Saved</title>
     </head>
     <body>
         <div class="container-fluid">
-            <h1>User Agreement</h1>
-            <div id="loader">
-                <i class="fa fa-refresh fa-spin"></i>
-                Loading...
-            </div>
-            <form id="theform" action="${pageContext.request.contextPath}/protected/agree" method="POST">
-                <div id="datauseagreement"></div>
-                <c:if test="${not empty param['service']}">
-                    <input type="hidden" name="service" value="<c:out value="${param['service']}"/>">
-                </c:if>
-                <input type="hidden" name="useragreementid" id="useragreementid"/>
-                <div class="form-group">
-                    <label for="fullname">Full name:</label>
-                    <input class="form-control" type="text" name="fullname" id="fullname" oninput="updateSubmitButton()">
-                </div>
-                <button type="submit" class="btn btn-default" name="submitButton" id="submitButton">I Agree</button>
-            </form>
-            <div id="getduafailed" class="alert alert-danger" role="alert">Error fetching data use agreement.</div>
+            <h1>User Agreement Saved</h1>
+            <div id="thankyou" class="alert alert-success" role="alert">Thank you!</div>
         </div>
-        <script type="text/javascript">
-            $('#theform').hide()
-            $('#getduafailed').hide()
-            $('#submitButton').prop('disabled', true);
-
-            updateSubmitButton = function () {
-                if ($('#fullname').val().length > 0) {
-                    $('#submitButton').prop('disabled', false);
-                } else {
-                    $('#submitButton').prop('disabled', true);
-                }
-            }
-
-            $.ajax({
-                url: "${pageContext.request.contextPath}/proxy-resource/useragreements/current", 
-            }).done(function (data) {
-                var responseJSON = JSON.parse(data);
-                $('#loader').hide();
-                var converter = new showdown.Converter();
-                $('#datauseagreement').html(converter.makeHtml(responseJSON.text));
-                $('#useragreementid').val(responseJSON.id);
-                $('#theform').show()
-            }).fail(function () {
-                $('#loader').hide();
-                $('#getduafailed').show()
-            });
-
-        </script>
     </body>
 </html>

@@ -63,7 +63,7 @@ public class AgreeServlet extends HttpServlet {
         } catch (NumberFormatException ex) {
             throw new ServletException("The user agreement id must be a long");
         }
-        
+
         UserAgreementStatus status = new UserAgreementStatus();
         status.setUsername(req.getRemoteUser());
         status.setFullname(fullname);
@@ -73,7 +73,10 @@ public class AgreeServlet extends HttpServlet {
         } catch (ClientException ex) {
             throw new ServletException("User agreement submission failed", ex);
         }
-        resp.getWriter().println("Agree");
-        resp.sendRedirect(service);
+        if (service != null) {
+            resp.sendRedirect(service);
+        } else {
+            req.getServletContext().getRequestDispatcher("/WEB-INF/saved.jsp").forward(req, resp);
+        }
     }
 }

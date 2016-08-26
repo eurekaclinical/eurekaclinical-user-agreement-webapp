@@ -19,7 +19,6 @@ package org.eurekaclinical.useragreement.webapp.servlet;
  * limitations under the License.
  * #L%
  */
-
 import com.sun.jersey.api.client.ClientResponse;
 import java.io.IOException;
 import javax.inject.Inject;
@@ -47,7 +46,7 @@ public class PresentServlet extends HttpServlet {
     public PresentServlet(EurekaClinicalUserAgreementProxyClient inClient) {
         this.client = inClient;
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String service = req.getParameter("service");
@@ -63,10 +62,14 @@ public class PresentServlet extends HttpServlet {
             }
         }
         if (foundAndActive) {
-            resp.sendRedirect(service);
+            if (service != null) {
+                resp.sendRedirect(service);
+            } else {
+                req.getServletContext().getRequestDispatcher("/WEB-INF/alreadyactive.jsp").forward(req, resp);
+            }
         } else {
             req.getServletContext().getRequestDispatcher("/WEB-INF/present.jsp").forward(req, resp);
         }
     }
-    
+
 }
