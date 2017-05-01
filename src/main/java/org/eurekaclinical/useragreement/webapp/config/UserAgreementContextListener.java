@@ -25,6 +25,8 @@ import com.google.inject.Injector;
 
 import com.google.inject.Module;
 import com.google.inject.servlet.GuiceServletContextListener;
+import javax.servlet.ServletContextEvent;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementProxyClient;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 
 /**
@@ -38,7 +40,8 @@ public class UserAgreementContextListener extends GuiceServletContextListener {
 
     private final UserAgreementWebappProperties properties = new UserAgreementWebappProperties();
     private InjectorSupport injectorSupport;
-
+    private EurekaClinicalUserAgreementProxyClient client = new EurekaClinicalUserAgreementProxyClient(this.properties.getServiceUrl());
+    
     @Override
     protected Injector getInjector() {
         /*
@@ -48,12 +51,20 @@ public class UserAgreementContextListener extends GuiceServletContextListener {
         if (this.injectorSupport == null) {
             this.injectorSupport = new InjectorSupport(
                     new Module[]{
-                        new AppModule(this.properties),
+                        new AppModule(this.properties, client),
                         new ServletModule(this.properties),
                     },
                     this.properties);
         }
         return this.injectorSupport.getInjector();
     }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+        super.contextDestroyed(servletContextEvent);
+        this.client.close();
+    }
+    
+    
 
 }

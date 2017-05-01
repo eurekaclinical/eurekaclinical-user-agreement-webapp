@@ -35,9 +35,9 @@ public class AppModule extends AbstractModule {
     private final UserAgreementWebappProperties properties;
     private final EurekaClinicalUserAgreementProxyClient client;
     
-    public AppModule(UserAgreementWebappProperties inProperties) {
+    public AppModule(UserAgreementWebappProperties inProperties, EurekaClinicalUserAgreementProxyClient inClient) {
         this.properties = inProperties;
-        this.client = new EurekaClinicalUserAgreementProxyClient(this.properties.getServiceUrl());
+        this.client = inClient;
     }
 
     @Override
