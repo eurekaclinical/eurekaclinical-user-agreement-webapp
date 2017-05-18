@@ -8,7 +8,8 @@ It provides web pages for users to sign user agreements and for administrators t
 Latest release: [![Latest release](https://maven-badges.herokuapp.com/maven-central/org.eurekaclinical/eurekaclinical-user-agreement-webapp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.eurekaclinical/eurekaclinical-user-agreement-webapp)
 
 ## Version history
-No final releases yet
+### Version 1.1
+The version 1 series implements the proxy for eurekaclinical-user-agreement-service. It also provides basic screens for signing agreements, creating agreements and updating agreements.
 
 ## Build requirements
 * [Oracle Java JDK 8](http://www.oracle.com/technetwork/java/javase/overview/index.html)
