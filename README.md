@@ -33,22 +33,11 @@ You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Pt
 
 ## Installation
 ### Configuration
-This webapp is configured using a properties file located at `/etc/ec-user/application.properties`. It supports the following properties:
-* `eurekaclinical.userwebapp.callbackserver`: https://hostname:port
-* `eurekaclinical.userwebapp.url`: https://hostname:port/eurekaclinical-user-webapp
-* `eurekaclinical.userservice.url`: https://hostname.of.userservice:port/eurekaclinical-user-service
-* `cas.url`: https://hostname.of.casserver:port/cas-server
-* `eurekaclinical.userwebapp.localregistrationenabled`: true or false to enable/disable registering for an account managed by this project; default is true.
-* `eurekaclinical.userwebapp.githuboauthkey`: the key for registering using a GitHub OAuth account.
-* `eurekaclinical.userwebapp.githuboauthsecret`:  the secret for registering using a GitHub OAuth account.
-* `eurekaclinical.userwebapp.globusoauthkey`:  the key for registering using a GitHub OAuth account.
-* `eurekaclinical.userwebapp.globusoauthsecret`:  the secret for registering using a Globus OAuth account.
-* `eurekaclinical.userwebapp.googleoauthkey`:  the key for registering using a Google OAuth account.
-* `eurekaclinical.userwebapp.googleoauthsecret`:  the secret for registering using a Google OAuth account.
-* `eurekaclinical.userwebapp.twitteroauthkey`:   the key for registering using a Twitter OAuth account.
-* `eurekaclinical.userwebapp.twitteroauthsecret`:  the secret for registering using a Google OAuth account.
-* `eurekaclinical.userwebapp.demomode`: true or false depending on whether to act like a demonstration; default is false.
-* `eurekaclinical.userwebapp.ephiprohibited`: true or false depending on whether to display that managing ePHI is prohibited; default is true.
+This webapp is configured using a properties file located at `/etc/ec-user-agreement/application.properties`. It supports the following properties:
+* `eurekaclinical.useragreementwebapp.callbackserver` = https://localhost:8443
+* `eurekaclinical.useragreementservice.url` = https://localhost:8443/eurekaclinical-user-agreement-service
+* `eurekaclinical.useragreementwebapp.url` = https://localhost:8443/eurekaclinical-user-agreement-webapp
+* `cas.url`=https://localhost:8443/cas-server
 
 A Tomcat restart is required to detect any changes to the configuration file.
 
