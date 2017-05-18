@@ -34,10 +34,10 @@ You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Pt
 ## Installation
 ### Configuration
 This webapp is configured using a properties file located at `/etc/ec-user-agreement/application.properties`. It supports the following properties:
-* `eurekaclinical.useragreementwebapp.callbackserver` = https://localhost:8443
-* `eurekaclinical.useragreementservice.url` = https://localhost:8443/eurekaclinical-user-agreement-service
-* `eurekaclinical.useragreementwebapp.url` = https://localhost:8443/eurekaclinical-user-agreement-webapp
-* `cas.url`=https://localhost:8443/cas-server
+* `eurekaclinical.useragreementwebapp.callbackserver` = https://hostname:port
+* `eurekaclinical.useragreementservice.url` = https://hostname.of.service:port/eurekaclinical-user-agreement-service
+* `eurekaclinical.useragreementwebapp.url` = https://hostname:port/eurekaclinical-user-agreement-webapp
+* `cas.url`=https://hostname.of.casserver:port/cas-server
 
 A Tomcat restart is required to detect any changes to the configuration file.
 
