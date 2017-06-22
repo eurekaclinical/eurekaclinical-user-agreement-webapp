@@ -36,15 +36,16 @@
               content="A Clinical Analysis Tool for Biomedical Informatics and Data"/>
         <link rel="SHORTCUT ICON"
               href="${pageContext.request.contextPath}/favicon.ico">
-        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic"
-              rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet"
+		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+	<link rel="stylesheet" href="https://assets.eurekaclinical.org/v2.0a1/css/eurekaclinical.css"/>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="https://cdn.rawgit.com/showdownjs/showdown/1.4.2/dist/showdown.min.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath}/js/ec.bootbar.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath}/js/ec.idletimeout.js" type="text/javascript"></script>
+	<script src="https://assets.eurekaclinical.org/v2.0a1/js/ec.bootbar.js" type="text/javascript"></script>
+        <script src="https://assets.eurekaclinical.org/v2.0a1/js/ec.idletimeout.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $(document).idleTimeout({
