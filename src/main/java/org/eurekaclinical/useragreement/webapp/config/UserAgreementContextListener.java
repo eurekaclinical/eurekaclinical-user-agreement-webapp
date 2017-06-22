@@ -19,7 +19,6 @@ package org.eurekaclinical.useragreement.webapp.config;
  * limitations under the License.
  * #L%
  */
-
 import org.eurekaclinical.common.config.InjectorSupport;
 import com.google.inject.Injector;
 
@@ -39,24 +38,23 @@ import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperti
 public class UserAgreementContextListener extends GuiceServletContextListener {
 
     private final UserAgreementWebappProperties properties = new UserAgreementWebappProperties();
-    private InjectorSupport injectorSupport;
     private EurekaClinicalUserAgreementProxyClient client = new EurekaClinicalUserAgreementProxyClient(this.properties.getServiceUrl());
-    
+    private Injector injector;
+
     @Override
     protected Injector getInjector() {
-        /*
-         * Must be created here in order for the modules to initialize 
-         * correctly.
-         */
-        if (this.injectorSupport == null) {
-            this.injectorSupport = new InjectorSupport(
-                    new Module[]{
-                        new AppModule(this.properties, client),
-                        new ServletModule(this.properties),
-                    },
-                    this.properties);
-        }
-        return this.injectorSupport.getInjector();
+        this.injector = new InjectorSupport(
+                new Module[]{
+                    new AppModule(this.properties, client),
+                    new ServletModule(this.properties),},
+                this.properties).getInjector();
+        return this.injector;
+    }
+
+    @Override
+    public void contextInitialized(ServletContextEvent servletContextEvent) {
+        super.contextInitialized(servletContextEvent);
+        servletContextEvent.getServletContext().addListener(this.injector.getInstance(ClientSessionListener.class));
     }
 
     @Override
@@ -64,7 +62,5 @@ public class UserAgreementContextListener extends GuiceServletContextListener {
         super.contextDestroyed(servletContextEvent);
         this.client.close();
     }
-    
-    
 
 }

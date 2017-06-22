@@ -23,8 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 import org.eurekaclinical.common.config.AbstractServletModule;
 import org.eurekaclinical.common.servlet.DestroySessionServlet;
-import org.eurekaclinical.common.servlet.LoginServlet;
-import org.eurekaclinical.common.servlet.LogoutServlet;
 import org.eurekaclinical.common.servlet.PostMessageLoginServlet;
 import org.eurekaclinical.common.servlet.ProxyServlet;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
@@ -41,14 +39,10 @@ import org.eurekaclinical.useragreement.webapp.servlet.PresentServlet;
  */
 public class ServletModule extends AbstractServletModule {
     
-    private static final String CONTAINER_PATH = "/site/*";
-
-    private static final String CONTAINER_PROTECTED_PATH = "/protected/*";
-    
     private final UserAgreementWebappProperties properties;
 
     public ServletModule(UserAgreementWebappProperties inProperties) {
-        super(inProperties, CONTAINER_PATH, CONTAINER_PROTECTED_PATH);
+        super(inProperties);
         this.properties = inProperties;
     }
     
