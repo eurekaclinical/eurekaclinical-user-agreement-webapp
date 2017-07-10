@@ -19,6 +19,7 @@ package org.eurekaclinical.useragreement.webapp.servlet;
  * limitations under the License.
  * #L%
  */
+import com.google.inject.Injector;
 import java.io.IOException;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -39,12 +40,8 @@ public class AgreeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    private final EurekaClinicalUserAgreementProxyClient client;
-
     @Inject
-    public AgreeServlet(EurekaClinicalUserAgreementProxyClient inClient) {
-        this.client = inClient;
-    }
+    private Injector injector;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -69,7 +66,8 @@ public class AgreeServlet extends HttpServlet {
         status.setFullname(fullname);
         status.setUserAgreement(userAgreementId);
         try {
-            this.client.submitUserAgreement(status);
+            EurekaClinicalUserAgreementProxyClient client = this.injector.getInstance(EurekaClinicalUserAgreementProxyClient.class);
+            client.submitUserAgreement(status);
         } catch (ClientException ex) {
             throw new ServletException("User agreement submission failed", ex);
         }

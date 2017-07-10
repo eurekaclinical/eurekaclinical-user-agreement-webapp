@@ -19,6 +19,7 @@ package org.eurekaclinical.useragreement.webapp.servlet;
  * limitations under the License.
  * #L%
  */
+import com.google.inject.Injector;
 import com.sun.jersey.api.client.ClientResponse;
 import java.io.IOException;
 import javax.inject.Inject;
@@ -40,19 +41,17 @@ import org.eurekaclinical.useragreement.client.comm.UserAgreementStatus;
 public class PresentServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private final EurekaClinicalUserAgreementProxyClient client;
-
+    
     @Inject
-    public PresentServlet(EurekaClinicalUserAgreementProxyClient inClient) {
-        this.client = inClient;
-    }
+    private Injector injector;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String service = req.getParameter("service");
         boolean foundAndActive;
         try {
-            UserAgreementStatus userAgreementStatus = this.client.getUserAgreementStatus();
+            EurekaClinicalUserAgreementProxyClient client = this.injector.getInstance(EurekaClinicalUserAgreementProxyClient.class);
+            UserAgreementStatus userAgreementStatus = client.getUserAgreementStatus();
             foundAndActive = userAgreementStatus.getStatus() == Status.ACTIVE;
         } catch (ClientException ex) {
             if (ex.getResponseStatus() == ClientResponse.Status.NOT_FOUND) {
