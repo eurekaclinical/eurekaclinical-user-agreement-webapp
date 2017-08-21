@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementProxyClient;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementClient;
 import org.eurekaclinical.useragreement.client.comm.Status;
 import org.eurekaclinical.useragreement.client.comm.UserAgreementStatus;
 
@@ -50,7 +50,7 @@ public class PresentServlet extends HttpServlet {
         String service = req.getParameter("service");
         boolean foundAndActive;
         try {
-            EurekaClinicalUserAgreementProxyClient client = this.injector.getInstance(EurekaClinicalUserAgreementProxyClient.class);
+            EurekaClinicalUserAgreementClient client = this.injector.getInstance(EurekaClinicalUserAgreementClient.class);
             UserAgreementStatus userAgreementStatus = client.getUserAgreementStatus();
             foundAndActive = userAgreementStatus.getStatus() == Status.ACTIVE;
         } catch (ClientException ex) {

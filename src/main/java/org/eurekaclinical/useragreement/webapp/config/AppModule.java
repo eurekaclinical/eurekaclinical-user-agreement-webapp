@@ -25,7 +25,7 @@ import com.google.inject.servlet.SessionScoped;
 import org.eurekaclinical.useragreement.webapp.client.ServiceClientRouterTable;
 import org.eurekaclinical.common.comm.clients.RouterTable;
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
-import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementProxyClient;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementClient;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 
 /**
@@ -34,18 +34,18 @@ import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperti
 public class AppModule extends AbstractModule {
 
     private final UserAgreementWebappProperties properties;
-    private final EurekaClinicalUserAgreementProxyClientProvider provider;
+    private final EurekaClinicalUserAgreementClientProvider provider;
     
     
     public AppModule(UserAgreementWebappProperties inProperties) {
         this.properties = inProperties;
-        this.provider = new EurekaClinicalUserAgreementProxyClientProvider(inProperties.getServiceUrl());
+        this.provider = new EurekaClinicalUserAgreementClientProvider(inProperties.getServiceUrl());
     }
 
     @Override
     protected void configure() {
         bind(RouterTable.class).to(ServiceClientRouterTable.class);
         bind(CasEurekaClinicalProperties.class).toInstance(this.properties);
-        bind(EurekaClinicalUserAgreementProxyClient.class).toProvider(this.provider).in(SessionScoped.class);
+        bind(EurekaClinicalUserAgreementClient.class).toProvider(this.provider).in(SessionScoped.class);
     }
 }

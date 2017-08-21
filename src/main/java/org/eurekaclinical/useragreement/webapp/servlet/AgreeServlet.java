@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.eurekaclinical.common.comm.clients.ClientException;
-import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementProxyClient;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementClient;
 import org.eurekaclinical.useragreement.client.comm.UserAgreementStatus;
 
 /**
@@ -66,7 +66,7 @@ public class AgreeServlet extends HttpServlet {
         status.setFullname(fullname);
         status.setUserAgreement(userAgreementId);
         try {
-            EurekaClinicalUserAgreementProxyClient client = this.injector.getInstance(EurekaClinicalUserAgreementProxyClient.class);
+            EurekaClinicalUserAgreementClient client = this.injector.getInstance(EurekaClinicalUserAgreementClient.class);
             client.submitUserAgreement(status);
         } catch (ClientException ex) {
             throw new ServletException("User agreement submission failed", ex);

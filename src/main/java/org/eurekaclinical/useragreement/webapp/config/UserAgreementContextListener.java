@@ -25,6 +25,8 @@ import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.servlet.GuiceServletContextListener;
 import javax.servlet.ServletContextEvent;
+import org.eurekaclinical.common.config.ClientSessionListener;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementClient;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 
 /**
@@ -52,7 +54,7 @@ public class UserAgreementContextListener extends GuiceServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         super.contextInitialized(servletContextEvent);
-        servletContextEvent.getServletContext().addListener(this.injector.getInstance(ClientSessionListener.class));
+        servletContextEvent.getServletContext().addListener(new ClientSessionListener(EurekaClinicalUserAgreementClient.class));
     }
 
 }

@@ -19,14 +19,18 @@ package org.eurekaclinical.useragreement.webapp.props;
  * limitations under the License.
  * #L%
  */
-import org.eurekaclinical.useragreement.common.props.UserAgreementProperties;
+import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 
 /**
  *
  * @author Andrew Post
  */
-public class UserAgreementWebappProperties extends UserAgreementProperties {
+public class UserAgreementWebappProperties extends CasEurekaClinicalProperties {
 
+    public UserAgreementWebappProperties() {
+        super("/etc/ec-user-agreement");
+    }
+    
     @Override
     public String getProxyCallbackServer() {
         return getValue("eurekaclinical.useragreementwebapp.callbackserver");

@@ -21,23 +21,23 @@ package org.eurekaclinical.useragreement.webapp.config;
  */
 
 import com.google.inject.Provider;
-import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementProxyClient;
+import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementClient;
 
 /**
  *
  * @author Andrew Post
  */
-public class EurekaClinicalUserAgreementProxyClientProvider implements Provider<EurekaClinicalUserAgreementProxyClient> {
+public class EurekaClinicalUserAgreementClientProvider implements Provider<EurekaClinicalUserAgreementClient> {
 
     private final String userServiceUrl;
 
-    public EurekaClinicalUserAgreementProxyClientProvider(String inUserServiceUrl) {
+    public EurekaClinicalUserAgreementClientProvider(String inUserServiceUrl) {
         this.userServiceUrl = inUserServiceUrl;
     }
 
     @Override
-    public EurekaClinicalUserAgreementProxyClient get() {
-        return new EurekaClinicalUserAgreementProxyClient(this.userServiceUrl);
+    public EurekaClinicalUserAgreementClient get() {
+        return new EurekaClinicalUserAgreementClient(this.userServiceUrl);
     }
 
 }
