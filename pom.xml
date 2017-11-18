@@ -31,7 +31,9 @@
     </issueManagement>
     
     <properties>
-        <eurekaclinical-user-agreement-client-version>2.0-Alpha-4</eurekaclinical-user-agreement-client-version>
+        <eurekaclinical-user-agreement-client-version>2.0-Alpha-5</eurekaclinical-user-agreement-client-version>
+        <eurekaclinical-common-version>2.0-Alpha-36</eurekaclinical-common-version>
+        <eurekaclinical-standard-apis-version>2.0-Alpha-17</eurekaclinical-standard-apis-version>
         <jstl-version>1.2</jstl-version>
         <jsp-api-version>2.0</jsp-api-version>
     </properties>
@@ -55,6 +57,16 @@
             <groupId>org.eurekaclinical</groupId>
             <artifactId>eurekaclinical-user-agreement-client</artifactId>
             <version>${eurekaclinical-user-agreement-client-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eurekaclinical</groupId>
+            <artifactId>eurekaclinical-common</artifactId>
+            <version>${eurekaclinical-common-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eurekaclinical</groupId>
+            <artifactId>eurekaclinical-standard-apis</artifactId>
+            <version>${eurekaclinical-standard-apis-version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -84,7 +96,7 @@
             <properties>
                 <cas-mock-version>1.0</cas-mock-version>
                 <tomcat.httpsPort>8443</tomcat.httpsPort>
-                <eurekaclinical-user-agreement-service-version>2.0-Alpha-5</eurekaclinical-user-agreement-service-version>
+                <eurekaclinical-user-agreement-service-version>2.0-Alpha-7</eurekaclinical-user-agreement-service-version>
             </properties>
             <build>
                 <plugins>
@@ -216,7 +228,7 @@
                                 </webapp>
                             </webapps>
                             <addContextWarDependencies>true</addContextWarDependencies>
-                            <addWarDependenciesInClassloader>true</addWarDependenciesInClassloader>
+                            <addWarDependenciesInClassloader>false</addWarDependenciesInClassloader>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -263,6 +275,22 @@
                     </plugin>
                 </plugins>
             </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eurekaclinical</groupId>
+                    <artifactId>cas-mock</artifactId>
+                    <version>${cas-mock-version}</version>
+                    <type>war</type>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eurekaclinical</groupId>
+                    <artifactId>eurekaclinical-user-agreement-service</artifactId>
+                    <version>${eurekaclinical-user-agreement-service-version}</version>
+                    <type>war</type>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 </project>
