@@ -26,7 +26,6 @@ import com.google.inject.Module;
 import com.google.inject.servlet.GuiceServletContextListener;
 import javax.servlet.ServletContextEvent;
 import org.eurekaclinical.common.config.ClientSessionListener;
-import org.eurekaclinical.useragreement.client.EurekaClinicalUserAgreementClient;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 
 /**
