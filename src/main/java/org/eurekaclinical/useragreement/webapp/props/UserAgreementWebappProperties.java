@@ -19,6 +19,7 @@ package org.eurekaclinical.useragreement.webapp.props;
  * limitations under the License.
  * #L%
  */
+
 import org.eurekaclinical.standardapis.props.CasEurekaClinicalProperties;
 
 /**
