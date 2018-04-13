@@ -19,15 +19,9 @@ package org.eurekaclinical.useragreement.webapp.config;
  * limitations under the License.
  * #L%
  */
-import java.util.HashMap;
-import java.util.Map;
-import org.eurekaclinical.common.config.AbstractServletModule;
-import org.eurekaclinical.common.servlet.DestroySessionServlet;
-import org.eurekaclinical.common.servlet.PostMessageLoginServlet;
-import org.eurekaclinical.common.servlet.ProxyServlet;
+import org.eurekaclinical.common.config.ApiGatewayServletModule;
 import org.eurekaclinical.useragreement.webapp.props.UserAgreementWebappProperties;
 import org.eurekaclinical.useragreement.webapp.servlet.AgreeServlet;
-import org.eurekaclinical.useragreement.webapp.servlet.EditServlet;
 import org.eurekaclinical.useragreement.webapp.servlet.PresentServlet;
 
 /**
@@ -37,33 +31,17 @@ import org.eurekaclinical.useragreement.webapp.servlet.PresentServlet;
  * @author Andrew Post
  *
  */
-public class ServletModule extends AbstractServletModule {
+public class ServletModule extends ApiGatewayServletModule {
     
-    private final UserAgreementWebappProperties properties;
-
     public ServletModule(UserAgreementWebappProperties inProperties) {
         super(inProperties);
-        this.properties = inProperties;
     }
     
     @Override
     protected void setupServlets() {
-        serve("/protected/get-session").with(PostMessageLoginServlet.class);
-        serve("/protected/edit").with(EditServlet.class);
+        super.setupServlets();
         serve("/protected/present").with(PresentServlet.class);
         serve("/protected/agree").with(AgreeServlet.class);
-        serve("/proxy-resource/*").with(ProxyServlet.class);
-        serve("/destroy-session").with(DestroySessionServlet.class);
-    }
-
-    @Override
-    protected Map<String, String> getCasValidationFilterInitParams() {
-        Map<String, String> params = new HashMap<>();
-        params.put("casServerUrlPrefix", this.properties.getCasUrl());
-        params.put("serverName", this.properties.getProxyCallbackServer());
-        params.put("proxyCallbackUrl", getCasProxyCallbackUrl());
-        params.put("proxyReceptorUrl", getCasProxyCallbackPath());
-        return params;
     }
 
 }
