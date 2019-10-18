@@ -33,7 +33,7 @@
     <properties>
         <eurekaclinical-user-agreement-client-version>2.3-Beta-2</eurekaclinical-user-agreement-client-version>
         <eurekaclinical-common-version>5.0-Alpha-5</eurekaclinical-common-version>
-        <eurekaclinical-standard-apis-version>4.0-Alpha-4-</eurekaclinical-standard-apis-version>
+        <eurekaclinical-standard-apis-version>4.0-Alpha-4</eurekaclinical-standard-apis-version>
         <eurekaclinical-user-agreement-service-version>3.1-Beta-3</eurekaclinical-user-agreement-service-version>
         <cas-mock-version>2.2</cas-mock-version>
         <jstl-version>1.2</jstl-version>
