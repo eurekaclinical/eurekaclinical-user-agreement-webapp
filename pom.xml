@@ -38,6 +38,7 @@
         <cas-mock-version>2.4-SNAPSHOT</cas-mock-version>
         <jstl-version>1.2</jstl-version>
         <jsp-api-version>2.0</jsp-api-version>
+        <maven.javadoc.skip>true</maven.javadoc.skip> 
     </properties>
 	
     <build>
