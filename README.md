@@ -1,13 +1,16 @@
 # Eureka! Clinical User Agreement Webapp
-[Atlanta Clinical and Translational Science Institute (ACTSI)](http://www.actsi.org), [Emory University](http://www.emory.edu), Atlanta, GA
+[Georgia Clinical and Translational Science Alliance (Georgia CTSA)](http://www.georgiactsa.org), [Emory University](http://www.emory.edu), Atlanta, GA
 
 ## What does it do?
 It provides web pages for users to sign user agreements and for administrators to create and update a user agreement. It also implements a proxy servlet and router for web clients to access the web services provided by eurekaclinical-user-agreement-service.
 
-## Version 2.0 development series
+## Version 3.0 development series
 Latest release: [![Latest release](https://maven-badges.herokuapp.com/maven-central/org.eurekaclinical/eurekaclinical-user-agreement-webapp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.eurekaclinical/eurekaclinical-user-agreement-webapp)
 
 ## Version history
+### Version 2.0
+Updates dependencies and improves performance.
+
 ### Version 1.1
 The version 1 series implements the proxy for eurekaclinical-user-agreement-service. It also provides basic screens for signing agreements, creating agreements and updating agreements.
 
@@ -29,7 +32,7 @@ You can call all of [eurekaclinical-user-agreement-service](https://github.com/e
 The project uses the maven build tool. Typically, you build it by invoking `mvn clean install` at the command line. For simple file changes, not additions or deletions, you can usually use `mvn install`. See https://github.com/eurekaclinical/dev-wiki/wiki/Building-Eureka!-Clinical-projects for more details.
 
 ## Performing system tests
-You can run this project in an embedded tomcat by executing `mvn tomcat7:run -Ptomcat` after you have built it. It will be accessible in your web browser at https://localhost:8443/eurekaclinical-user-agreement-webapp/. Your username will be `superuser`.
+You can run this project in an embedded tomcat by executing `mvn process-resources cargo:run -Ptomcat` after you have built it. It will be accessible in your web browser at https://localhost:8443/eurekaclinical-user-agreement-webapp/. Your username will be `superuser`.
 
 ## Installation
 ### Configuration
