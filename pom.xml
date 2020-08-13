@@ -13,7 +13,7 @@
     <parent>
         <groupId>org.eurekaclinical</groupId>
         <artifactId>eurekaclinical-parent-standard-deps</artifactId>
-        <version>4-Alpha-4-SNAPSHOT</version>
+        <version>4-Alpha-4</version>
     </parent>
 
     <url>https://github.com/eurekaclinical/eurekaclinical-user-agreement-webapp.git</url>
@@ -31,14 +31,14 @@
     </issueManagement>
     
     <properties>
-        <eurekaclinical-user-agreement-client-version>2.4-Alpha-2-SNAPSHOT</eurekaclinical-user-agreement-client-version>
-        <eurekaclinical-common-version>5.1-Alpha-1-SNAPSHOT</eurekaclinical-common-version>
-        <eurekaclinical-standard-apis-version>4.1-Alpha-1-SNAPSHOT</eurekaclinical-standard-apis-version>
-        <eurekaclinical-user-agreement-service-version>3.2-Alpha-2-SNAPSHOT</eurekaclinical-user-agreement-service-version>
-        <cas-mock-version>2.3</cas-mock-version>
+        <eurekaclinical-user-agreement-client-version>2.4-Alpha-2</eurekaclinical-user-agreement-client-version>
+        <eurekaclinical-common-version>5.1-Alpha-1</eurekaclinical-common-version>
+        <eurekaclinical-standard-apis-version>4.1-Alpha-1</eurekaclinical-standard-apis-version>
+        <eurekaclinical-user-agreement-service-version>3.2-Alpha-2</eurekaclinical-user-agreement-service-version>
+        <cas-mock-version>2.4</cas-mock-version>
         <jstl-version>1.2</jstl-version>
         <jsp-api-version>2.0</jsp-api-version>
-        <maven.javadoc.skip>true</maven.javadoc.skip> 
+        <!-- maven.javadoc.skip>true</maven.javadoc.skip--> 
     </properties>
 	
     <build>
